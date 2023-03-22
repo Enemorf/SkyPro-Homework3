@@ -1,3 +1,5 @@
+import java.util.Locale;
+
 public class Main {
     public static void main(String[] args) {
         task1();
@@ -95,11 +97,11 @@ public class Main {
         byte whitePotToClass = 2;
         byte brownPotToClass = 4;
 
-        byte totalClass = (byte) (potSum / (whitePotToClass + brownPotToClass));
-        byte whitePot = (byte) (totalClass * whitePotToClass);
-        byte brownPot = (byte) (totalClass * brownPotToClass);
+        byte totalClasses = (byte) (potSum / (whitePotToClass + brownPotToClass));
+        byte whitePot = (byte) (totalClasses * whitePotToClass);
+        byte brownPot = (byte) (totalClasses * brownPotToClass);
 
-        System.out.println("В школе, где "+totalClass+" классов, нужно "+whitePot+" банок белой краски и "+brownPot+
+        System.out.println("В школе, где "+ totalClasses +" классов, нужно "+whitePot+" банок белой краски и "+brownPot+
                 " банок коричневой краски");
         System.out.println("---\n");
     }
@@ -140,11 +142,14 @@ public class Main {
 
        short minDays = (short) (totalGram / maxGram);
        short maxDays = (short) (totalGram / minGram);
-       short avgDays = (short) ((maxDays + minDays) / 2);
+       short avgDays = (short) ((minGram + maxGram) / 2);
+       float totalDays = (float) totalGram / avgDays;
+
+
 
         System.out.println("При потере 250 грамм в день спортсмен похудеет за " +maxDays+" дней");
         System.out.println("При потере 500 грамм в день спортсмен похудеет за " +minDays+" дней");
-        System.out.println("Среднее число дней на похудение = " +avgDays+" дней");
+        System.out.printf(Locale.US,"Среднее число дней на похудение составляет %.2f дней\n", + totalDays);
         System.out.println("---\n");
     }
 
